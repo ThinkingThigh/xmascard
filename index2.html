@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>我的图片</title>
+  </head>
+  <body>
+    <canvas id="Map" width="500" height="500" style="background:gray;"></canvas>
+    <script>
+      // 设置绘图环境
+      var myMap = document.getElementById("Map");
+      var cxt = myMap.getContext("2d");
+      // 设置图像位置初始位置的变量
+      var x = 20;
+      var y = 20;
+      // 创建绘图对象,并且画出来
+      var img = new Image();
+      img.src = "./imgs/oldman.png";
+      draw();
+      function draw() {
+        cxt.clearRect(0, 0, 500, 500);
+        x += 10;
+        y += 50;
+        cxt.drawImage(img, x, y, 80, 80);
+        console.log(y);
+        if (y > 500) {
+          y = 20;
+          x = 20;
+        }
+      }
+
+      window.setInterval(draw, 100);
+    </script>
+  </body>
+</html>

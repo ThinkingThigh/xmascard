@@ -64,7 +64,7 @@ function DrawTree() {
     ctx_tree.drawImage(
       img,
       can.width / 2 - 200,
-      can.height / 2 - 200,
+      can.height / 2 - 150,
       400,
       400
     );
@@ -80,39 +80,41 @@ function DrawText() {
     ctx_tree.drawImage(
       img,
       can_tree.width / 2 - 200,
-      can_tree.height / 2 - 200,
+      can_tree.height / 2 - 150,
       400,
       400
     );
   };
-  //   ctx.rotate((5 * Math.PI) / 180);
-  //   requestAnimationFrame(DrawText);
 }
 // 画树了
 DrawTree();
-// function DrawLand() {}
-// function DrawStar(rx, ry, x, y) {
-//   ctx.beginPath();
-//   ctx.strokeStyle = "yellow";
-//   ctx.lineWidth = "1";
-//   for (var i = 0; i < 5; i++) {
-//     ctx.lineTo(
-//       Math.cos(((18 + i * 72) / 180) * Math.PI) * rx + x,
-//       -Math.sin(((18 + i * 72) / 180) * Math.PI) * rx + x
-//     );
-//     ctx.lineTo(
-//       Math.cos(((54 + i * 72) / 180) * Math.PI) * ry + y,
-//       -Math.sin(((54 + i * 72) / 180) * Math.PI) * 100 + y
-//     );
-//   }
-//   ctx.closePath();
-//   ctx.stroke();
-//   // 放射渐变 https://www.w3school.com.cn/tags/canvas_createradialgradient.asp
-//   var fillStar = ctx.createRadialGradient(75, 50, 5, 90, 60, 200);
-//   fillStar.addColorStop(0, "yellow");
-//   fillStar.addColorStop(1, "white");
-//   ctx.fillStyle = fillStar;
-//   ctx.fill();
-// }
-// setInterval(DrawSnow, 50);
-// DrawStar(200, 100, 500, 500);
+
+// 画老头
+var can_man = document.getElementById("canvas_man");
+var ctx_man = can_man.getContext("2d");
+
+can_man.width = wid;
+can_man.height = hei;
+// 水平“翻转”画布
+ctx_man.translate(can_man.width, 0);
+ctx_man.scale(-1, 1);
+var x = 40;
+var y = 40;
+function DrawOldman() {
+  var img = new Image();
+  img.src = "./imgs/oldman.png";
+  draw();
+  function draw() {
+    ctx_man.clearRect(0, 0, can_man.width, can_man.height);
+    x += 5;
+    y += 0;
+    ctx_man.drawImage(img, x, y, 200, 200);
+    console.log(y);
+    if (x > can_man.width) {
+      y = 20;
+      x = 20;
+    }
+  }
+  requestAnimationFrame(DrawOldman);
+}
+DrawOldman();

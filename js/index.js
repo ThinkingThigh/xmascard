@@ -86,8 +86,13 @@ function DrawText() {
     );
   };
 }
+function DrawLand() {
+  ctx_tree.fillStyle = "#fff";
+  ctx_tree.fillRect(0, can_tree.height - 140, can_tree.width, 140);
+}
 // 画树了
 DrawTree();
+DrawLand();
 
 // 画老头
 var can_man = document.getElementById("canvas_man");

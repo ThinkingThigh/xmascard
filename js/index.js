@@ -87,7 +87,17 @@ function DrawText() {
   };
 }
 function DrawLand() {
-  ctx_tree.fillStyle = "#fff";
+  //   ctx_tree.fillStyle = "#fff";
+  var my_gradient = ctx_tree.createLinearGradient(
+    can_tree.width,
+    can_tree.height - 140,
+    can_tree.width,
+    can_tree.height
+  );
+  my_gradient.addColorStop(0, "#ffffff");
+  //   my_gradient.addColorStop(0.5, "red");
+  my_gradient.addColorStop(1, "#FFFAF0");
+  ctx_tree.fillStyle = my_gradient;
   ctx_tree.fillRect(0, can_tree.height - 140, can_tree.width, 140);
 }
 // 画树了

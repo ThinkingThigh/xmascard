@@ -113,8 +113,8 @@ can_man.height = hei;
 // 水平“翻转”画布
 ctx_man.translate(can_man.width, 0);
 ctx_man.scale(-1, 1);
-var x = 40;
-var y = 40;
+var x = 0;
+var y = 0;
 function DrawOldman() {
   var img = new Image();
   img.src = "./imgs/oldman.png";
@@ -126,8 +126,8 @@ function DrawOldman() {
     ctx_man.drawImage(img, x, y, 200, 200);
     console.log(y);
     if (x > can_man.width) {
-      y = 20;
-      x = 20;
+      y = 0;
+      x = 0;
     }
   }
   requestAnimationFrame(DrawOldman);
